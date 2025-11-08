@@ -1,4 +1,7 @@
-FROM  eclipse-temurin:11-jre
+ # Dockerfile
+FROM eclipse-temurin:11-jre
+WORKDIR /app
 EXPOSE 8080
-COPY target/spring-boot-mysql.jar spring-boot-mysql.jar
-ENTRYPOINT ["java","-jar","/spring-boot-mysql.jar"]
+# make sure this JAR name matches your build output
+COPY target/spring-boot-mysql.jar app.jar
+ENTRYPOINT ["java","-jar","/app/app.jar"]
